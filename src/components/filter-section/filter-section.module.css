@@ -1,0 +1,31 @@
+.container {
+    width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+}
+
+.filterInput {
+    height: 2rem;
+    border: 1px solid #868d8e;
+    outline-color: rgb(8, 89, 5);
+    padding: 0.2rem 1rem;
+    margin-right: 4rem;
+}
+
+.lowestButton {
+    height: 2rem;
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+    border: 1px solid #868d8e;
+    background-color: #fff;
+}
+
+.lowestButton:hover {
+    background-color: #f6f6f6;
+}
+
+.activeButton {
+    background-color: #000;
+    color: #fff;
+}

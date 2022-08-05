@@ -1,0 +1,13 @@
+.card{
+    box-shadow: 3px 5px 10px 4px rgba(153, 153, 153, 0.25);
+    -moz-box-shadow: 3px 5px 10px 4px rgba(153, 153, 153, 0.25);
+    -webkit-box-shadow: 3px 5px 10px 4px rgba(153, 153, 153, 0.25);
+    width: 100%;
+    height: auto;
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: all .2s ease-in-out;
+}

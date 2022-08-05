@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Styles from "./styles.module.css";
+import events from "./events.json";
+import Header from "./components/header";
+import { EventListT, FilterT } from "./types/event";
+import FilterSection from "./components/filter-section";
+import EventSection from "./components/event-section";
+import { getMaxPrice } from "./utils/functions";
 
-function App() {
+
+export default function App() {
+  const [eventList] = useState<EventListT["events"]>(events);
+  const [filter, setFilter] = useState<FilterT>({
+    cityFilter: "",
+    priceFilter: getMaxPrice(eventList),
+    lowestFilter: false,
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter({
+      ...filter,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Styles.app}>
+      <Header />
+      <FilterSection filter={filter} handleChange={handleChange} />
+      <EventSection eventList={eventList} filter={filter} />
     </div>
   );
 }
-
-export default App;
